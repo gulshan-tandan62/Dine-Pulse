@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import {
   Box, Grid, Card, CardContent, Typography,
-  Button, AppBar, Toolbar, IconButton
+  Button, AppBar, Toolbar
 } from '@mui/material';
 import { useNavigate } from 'react-router-dom';
 import { useAuth } from '../../context/AuthContext';

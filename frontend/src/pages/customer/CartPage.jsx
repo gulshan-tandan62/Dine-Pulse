@@ -8,7 +8,7 @@ import { useCart } from '../../context/CartContext';
 import { placeOrder, getAllTables } from '../../api/index';
 
 export default function CartPage() {
-  const { cart, updateQuantity, removeFromCart,
+  const { cart, updateQuantity,
           clearCart, totalAmount } = useCart();
   const navigate                  = useNavigate();
   const [searchParams]            = useSearchParams();

@@ -7,14 +7,12 @@ const useSocket = (room, eventHandlers) => {
   useEffect(() => {
     socketRef.current = io(process.env.REACT_APP_SOCKET_URL);
 
-    // Join the right room
     if (room === 'kitchen') {
       socketRef.current.emit('join_kitchen');
     } else {
       socketRef.current.emit('join_table', room);
     }
 
-    // Register all event listeners
     Object.entries(eventHandlers).forEach(([event, handler]) => {
       socketRef.current.on(event, handler);
     });
@@ -22,6 +20,7 @@ const useSocket = (room, eventHandlers) => {
     return () => {
       socketRef.current.disconnect();
     };
+  // eslint-disable-next-line react-hooks/exhaustive-deps
   }, [room]);
 
   return socketRef.current;
