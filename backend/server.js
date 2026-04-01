@@ -6,7 +6,6 @@ const http = require('http');
 const cors = require('cors');
 const { connectDB } = require('./config/db');
 
-// Load all models here so they register before sync
 require('./models/User');
 require('./models/Category');
 require('./models/MenuItem');
@@ -26,9 +25,9 @@ app.use('/api/tables', require('./routes/table.routes'));
 app.use('/api/menu',   require('./routes/menu.routes'));
 app.use('/api/orders', require('./routes/order.routes'));
 
-app.get('/', (req, res) => res.json({ message: 'Hotel Engine API running' }));
+app.get('/', (req, res) => res.json({ message: 'Dine Pulse API running' }));
 
-const initSocket = require('./socket/socket');
+const { initSocket } = require('./socket/socket');
 initSocket(server);
 
 const PORT = process.env.PORT || 5000;
