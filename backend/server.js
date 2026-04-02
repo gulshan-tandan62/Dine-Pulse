@@ -15,13 +15,12 @@ require('./models/Order');
 
 const app = express();
 const server = http.createServer(app);
+
 app.use(cors({
-  origin: [
-    'https://dine-pulse-seven.vercel.app',
-    'http://localhost:3000'
-  ],
-  credentials: true
+  origin: '*',
+  credentials: false
 }));
+
 app.use(express.json());
 
 connectDB();
